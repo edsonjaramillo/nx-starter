@@ -1,0 +1,26 @@
+{
+	"$schema": "https://json.schemastore.org/package",
+	"name": "nx-starter",
+	"version": "1.0.0",
+	"private": true,
+	"license": "MIT",
+	"scripts": {
+		"format": "nx run-many --target=format",
+		"lint": "nx run-many --target=lint",
+		"lint:fix": "nx run-many --target=lint:fix",
+		"manypkg:check": "manypkg check",
+		"manypkg:fix": "manypkg fix"
+	},
+	"devDependencies": {
+		"@antfu/eslint-config": "catalog:",
+		"@manypkg/cli": "0.25.1",
+		"@repo/config": "workspace:*",
+		"@trivago/prettier-plugin-sort-imports": "catalog:",
+		"eslint": "catalog:",
+		"nx": "21.6.3",
+		"prettier": "catalog:",
+		"prettier-plugin-packagejson": "catalog:",
+		"typescript": "catalog:"
+	},
+	"packageManager": "pnpm@10.14.0"
+}

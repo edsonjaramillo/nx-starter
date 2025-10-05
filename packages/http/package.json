@@ -1,0 +1,30 @@
+{
+	"$schema": "https://json.schemastore.org/package",
+	"name": "@repo/http",
+	"version": "1.0.0",
+	"license": "MIT",
+	"type": "module",
+	"exports": {
+		"./jsend": {
+			"types": "./dist/jsend.d.ts",
+			"import": "./dist/jsend.js"
+		}
+	},
+	"scripts": {
+		"build": "tsdown --env.CONFIG=production",
+		"dev": "tsdown --env.CONFIG=development",
+		"format": "prettier --write .",
+		"lint": "eslint . --max-warnings=0",
+		"lint:fix": "eslint . --fix"
+	},
+	"devDependencies": {
+		"@antfu/eslint-config": "catalog:",
+		"@repo/config": "workspace:*",
+		"@trivago/prettier-plugin-sort-imports": "catalog:",
+		"eslint": "catalog:",
+		"prettier": "catalog:",
+		"prettier-plugin-packagejson": "catalog:",
+		"tsdown": "catalog:",
+		"typescript": "catalog:"
+	}
+}

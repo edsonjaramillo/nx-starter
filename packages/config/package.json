@@ -1,0 +1,26 @@
+{
+	"$schema": "https://json.schemastore.org/package",
+	"name": "@repo/config",
+	"version": "1.0.0",
+	"license": "MIT",
+	"type": "module",
+	"exports": {
+		"./eslint": "./eslint/eslint.mjs",
+		"./prettier": "./prettier/prettier.mjs",
+		"./tsconfig/standard": "./tsconfig/standard.mjs",
+		"./tsdown": "./tsdown/tsdown.mjs"
+	},
+	"scripts": {
+		"lint": "eslint . --max-warnings=0",
+		"lint:fix": "eslint . --fix"
+	},
+	"devDependencies": {
+		"@antfu/eslint-config": "catalog:",
+		"@trivago/prettier-plugin-sort-imports": "catalog:",
+		"eslint": "catalog:",
+		"prettier": "catalog:",
+		"prettier-plugin-packagejson": "catalog:",
+		"tsdown": "catalog:",
+		"typescript": "catalog:"
+	}
+}

@@ -9,12 +9,18 @@ catalogs:
     '@antfu/eslint-config':
       specifier: 5.4.1
       version: 5.4.1
+    '@hono/node-server':
+      specifier: 1.19.5
+      version: 1.19.5
     '@trivago/prettier-plugin-sort-imports':
       specifier: 5.2.2
       version: 5.2.2
     eslint:
       specifier: 9.37.0
       version: 9.37.0
+    hono:
+      specifier: 4.9.10
+      version: 4.9.10
     prettier:
       specifier: 3.6.2
       version: 3.6.2
@@ -24,6 +30,9 @@ catalogs:
     tsdown:
       specifier: 0.15.6
       version: 0.15.6
+    tsx:
+      specifier: 4.20.6
+      version: 4.20.6
     typescript:
       specifier: 5.9.3
       version: 5.9.3
@@ -33,7 +42,7 @@ importers:
   .:
     devDependencies:
       '@antfu/eslint-config':
-        specifier: 5.4.1
+        specifier: 'catalog:'
         version: 5.4.1(@next/eslint-plugin-next@15.5.4)(@vue/compiler-sfc@3.5.22)(eslint-plugin-jsx-a11y@6.10.2(eslint@9.37.0(jiti@2.6.1)))(eslint-plugin-react-hooks@5.2.0(eslint@9.37.0(jiti@2.6.1)))(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.3)
       '@manypkg/cli':
         specifier: 0.25.1
@@ -42,83 +51,83 @@ importers:
         specifier: workspace:*
         version: link:packages/config
       '@trivago/prettier-plugin-sort-imports':
-        specifier: 5.2.2
+        specifier: 'catalog:'
         version: 5.2.2(@vue/compiler-sfc@3.5.22)(prettier@3.6.2)
       eslint:
-        specifier: 9.37.0
+        specifier: 'catalog:'
         version: 9.37.0(jiti@2.6.1)
       nx:
         specifier: 21.6.3
         version: 21.6.3
       prettier:
-        specifier: 3.6.2
+        specifier: 'catalog:'
         version: 3.6.2
       prettier-plugin-packagejson:
-        specifier: 2.5.19
+        specifier: 'catalog:'
         version: 2.5.19(prettier@3.6.2)
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   apps/api:
     dependencies:
       '@hono/node-server':
-        specifier: 1.19.5
-        version: 1.19.5(hono@4.9.9)
+        specifier: 'catalog:'
+        version: 1.19.5(hono@4.9.10)
       hono:
-        specifier: 4.9.9
-        version: 4.9.9
+        specifier: 'catalog:'
+        version: 4.9.10
     devDependencies:
       '@antfu/eslint-config':
-        specifier: 5.4.1
+        specifier: 'catalog:'
         version: 5.4.1(@next/eslint-plugin-next@15.5.4)(@vue/compiler-sfc@3.5.22)(eslint-plugin-jsx-a11y@6.10.2(eslint@9.37.0(jiti@2.6.1)))(eslint-plugin-react-hooks@5.2.0(eslint@9.37.0(jiti@2.6.1)))(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.3)
       '@repo/config':
         specifier: workspace:*
         version: link:../../packages/config
       '@trivago/prettier-plugin-sort-imports':
-        specifier: 5.2.2
+        specifier: 'catalog:'
         version: 5.2.2(@vue/compiler-sfc@3.5.22)(prettier@3.6.2)
       eslint:
-        specifier: 9.37.0
+        specifier: 'catalog:'
         version: 9.37.0(jiti@2.6.1)
       prettier:
-        specifier: 3.6.2
+        specifier: 'catalog:'
         version: 3.6.2
       prettier-plugin-packagejson:
-        specifier: 2.5.19
+        specifier: 'catalog:'
         version: 2.5.19(prettier@3.6.2)
       tsdown:
-        specifier: 0.15.6
+        specifier: 'catalog:'
         version: 0.15.6(typescript@5.9.3)
       tsx:
-        specifier: 4.20.6
+        specifier: 'catalog:'
         version: 4.20.6
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/config:
     devDependencies:
       '@antfu/eslint-config':
-        specifier: 5.4.1
+        specifier: 'catalog:'
         version: 5.4.1(@next/eslint-plugin-next@15.5.4)(@vue/compiler-sfc@3.5.22)(eslint-plugin-jsx-a11y@6.10.2(eslint@9.37.0(jiti@2.6.1)))(eslint-plugin-react-hooks@5.2.0(eslint@9.37.0(jiti@2.6.1)))(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.3)
       '@trivago/prettier-plugin-sort-imports':
-        specifier: 5.2.2
+        specifier: 'catalog:'
         version: 5.2.2(@vue/compiler-sfc@3.5.22)(prettier@3.6.2)
       eslint:
-        specifier: 9.37.0
+        specifier: 'catalog:'
         version: 9.37.0(jiti@2.6.1)
       prettier:
-        specifier: 3.6.2
+        specifier: 'catalog:'
         version: 3.6.2
       prettier-plugin-packagejson:
-        specifier: 2.5.19
+        specifier: 'catalog:'
         version: 2.5.19(prettier@3.6.2)
       tsdown:
-        specifier: 0.15.6
+        specifier: 'catalog:'
         version: 0.15.6(typescript@5.9.3)
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   packages/http:
@@ -840,8 +849,8 @@ packages:
     resolution: {integrity: sha512-qsaFBA3e09MIDAGFUrTk+dzqtfv1XPVz8t8d1f0ybTzrCY7BKiMC5cjrl1O/P7UmHsNyW90EYSkU/ZWpmXelag==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@vitest/eslint-plugin@1.3.15':
-    resolution: {integrity: sha512-U9NGRhN4QrIsxRl4LITQ/deLD5Hv6MC8KrLx+exFX1ri41naX2EaBJAJdbtAyjGnQnBGaXpC6kNFmQac7Ogm2w==}
+  '@vitest/eslint-plugin@1.3.16':
+    resolution: {integrity: sha512-EvXGiZpz3L1G/pmebcmMe61UzqgR8LFwmm+QGgQEHcrTCFkMgl+c0mj2jneo38/CkHhofbK3zc3xafV6/SpzNw==}
     peerDependencies:
       eslint: '>= 8.57.0'
       typescript: '>= 5.0.0'
@@ -1713,8 +1722,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.9.9:
-    resolution: {integrity: sha512-Hxw4wT6zjJGZJdkJzAx9PyBdf7ZpxaTSA0NfxqjLghwMrLBX8p33hJBzoETRakF3UJu6OdNQBZAlNSkGqKFukw==}
+  hono@4.9.10:
+    resolution: {integrity: sha512-AlI15ijFyKTXR7eHo7QK7OR4RoKIedZvBuRjO8iy4zrxvlY5oFCdiRG/V/lFJHCNXJ0k72ATgnyzx8Yqa5arug==}
     engines: {node: '>=16.9.0'}
 
   hookable@5.5.3:
@@ -2857,7 +2866,7 @@ snapshots:
       '@stylistic/eslint-plugin': 5.4.0(eslint@9.37.0(jiti@2.6.1))
       '@typescript-eslint/eslint-plugin': 8.45.0(@typescript-eslint/parser@8.45.0(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.3))(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.3)
       '@typescript-eslint/parser': 8.45.0(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.3)
-      '@vitest/eslint-plugin': 1.3.15(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.3)
+      '@vitest/eslint-plugin': 1.3.16(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.3)
       ansis: 4.2.0
       cac: 6.7.14
       eslint: 9.37.0(jiti@2.6.1)
@@ -3149,9 +3158,9 @@ snapshots:
       '@eslint/core': 0.16.0
       levn: 0.4.1
 
-  '@hono/node-server@1.19.5(hono@4.9.9)':
+  '@hono/node-server@1.19.5(hono@4.9.10)':
     dependencies:
-      hono: 4.9.9
+      hono: 4.9.10
 
   '@humanfs/core@0.19.1': {}
 
@@ -3485,7 +3494,7 @@ snapshots:
       '@typescript-eslint/types': 8.45.0
       eslint-visitor-keys: 4.2.1
 
-  '@vitest/eslint-plugin@1.3.15(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.3)':
+  '@vitest/eslint-plugin@1.3.16(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/scope-manager': 8.45.0
       '@typescript-eslint/utils': 8.45.0(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.3)
@@ -4529,7 +4538,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.9.9: {}
+  hono@4.9.10: {}
 
   hookable@5.5.3: {}
 

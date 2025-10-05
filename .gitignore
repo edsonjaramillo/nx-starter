@@ -1,0 +1,11 @@
+# monorepo 
+.nx
+
+# node
+node_modules
+
+# build
+dist
+
+# misc
+.DS_Store

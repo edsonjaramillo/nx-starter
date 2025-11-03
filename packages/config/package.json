@@ -7,7 +7,7 @@
 	"exports": {
 		"./eslint": "./eslint/eslint.mjs",
 		"./prettier": "./prettier/prettier.mjs",
-		"./tsconfig/standard": "./tsconfig/standard.mjs",
+		"./tsconfig/standard": "./tsconfig/standard.json",
 		"./tsdown": "./tsdown/tsdown.mjs"
 	},
 	"scripts": {
@@ -22,5 +22,8 @@
 		"prettier-plugin-packagejson": "catalog:",
 		"tsdown": "catalog:",
 		"typescript": "catalog:"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }

@@ -4,7 +4,7 @@
 		"outDir": "./dist",
 		"module": "ES2022",
 		"target": "ES2022",
-		"lib": ["ES2022"],
+		"lib": ["ES2022", "DOM"],
 		"moduleResolution": "bundler",
 		"declaration": true,
 		"declarationMap": true,

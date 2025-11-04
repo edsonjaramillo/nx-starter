@@ -11,12 +11,13 @@
 		"./tsdown": "./tsdown/tsdown.mjs"
 	},
 	"scripts": {
+		"format": "prettier --write .",
 		"lint": "eslint . --max-warnings=0",
 		"lint:fix": "eslint . --fix"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "catalog:",
-		"@trivago/prettier-plugin-sort-imports": "catalog:",
+		"@ianvs/prettier-plugin-sort-imports": "catalog:",
 		"eslint": "catalog:",
 		"prettier": "catalog:",
 		"prettier-plugin-packagejson": "catalog:",

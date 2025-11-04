@@ -5,14 +5,22 @@
 const base = {
 	plugins: [
 		'prettier-plugin-packagejson',
-		'@trivago/prettier-plugin-sort-imports',
+		'@ianvs/prettier-plugin-sort-imports',
 	],
 	trailingComma: 'es5',
 	semi: true,
 	useTabs: true,
 	singleQuote: true,
 	importOrderSortSpecifiers: true,
-	importOrder: ['<THIRD_PARTY_MODULES>', '^[./]'],
+	importOrder: [
+		'<TYPES>^(node:)',
+		'<TYPES>',
+		'<TYPES>^[.]',
+		'<THIRD_PARTY_MODULES>',
+		'^[./]',
+		'^(?!.*[.]css$)[./].*$',
+		'.css$',
+	],
 };
 
 export const libraryConfig = { ...base };

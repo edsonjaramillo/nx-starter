@@ -11,8 +11,8 @@
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "catalog:",
+		"@ianvs/prettier-plugin-sort-imports": "catalog:",
 		"@repo/config": "workspace:*",
-		"@trivago/prettier-plugin-sort-imports": "catalog:",
 		"eslint": "catalog:",
 		"nx": "21.6.3",
 		"prettier": "catalog:",

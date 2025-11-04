@@ -15,7 +15,8 @@
 		"dev": "tsdown --env.CONFIG=development",
 		"format": "prettier --write .",
 		"lint": "eslint . --max-warnings=0",
-		"lint:fix": "eslint . --fix"
+		"lint:fix": "eslint . --fix",
+		"prepare": "tsdown --env.CONFIG=prepare"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "catalog:",

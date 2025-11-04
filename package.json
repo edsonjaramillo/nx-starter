@@ -5,9 +5,11 @@
 	"private": true,
 	"license": "MIT",
 	"scripts": {
+		"build": "nx run-many --target=build",
 		"format": "nx run-many --target=format",
 		"lint": "nx run-many --target=lint",
-		"lint:fix": "nx run-many --target=lint:fix"
+		"lint:fix": "nx run-many --target=lint:fix",
+		"prepare": "nx run-many --target=prepare"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "catalog:",

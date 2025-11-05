@@ -12,6 +12,7 @@
 	},
 	"scripts": {
 		"build": "tsdown --env.CONFIG=production",
+		"clean": "rm -rf dist",
 		"dev": "tsdown --env.CONFIG=development",
 		"format": "prettier --write .",
 		"lint": "eslint . --max-warnings=0",

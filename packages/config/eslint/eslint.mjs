@@ -10,7 +10,8 @@ export const base = {
 		semi: true,
 	},
 	rules: {
-		indent: ['off'],
 		'jsonc/sort-keys': ['off'],
+		'style/quote-props': ['off'],
+		indent: ['off'],
 	},
 };

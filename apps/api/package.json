@@ -22,6 +22,7 @@
 		"@antfu/eslint-config": "catalog:",
 		"@ianvs/prettier-plugin-sort-imports": "catalog:",
 		"@repo/config": "workspace:*",
+		"@types/node": "catalog:",
 		"eslint": "catalog:",
 		"prettier": "catalog:",
 		"prettier-plugin-packagejson": "catalog:",

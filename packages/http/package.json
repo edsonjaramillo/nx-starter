@@ -8,6 +8,10 @@
 		"./jsend": {
 			"types": "./dist/jsend.d.ts",
 			"import": "./dist/jsend.js"
+		},
+		"./status-codes": {
+			"types": "./dist/status-codes.d.ts",
+			"import": "./dist/status-codes.js"
 		}
 	},
 	"scripts": {

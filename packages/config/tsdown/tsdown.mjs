@@ -12,7 +12,7 @@ const baseConfig = {
 /**
  * @type {import('tsdown').Options}
  */
-const prepareConfig = {
+const preloadConfig = {
 	...baseConfig,
 	clean: true,
 	dts: {
@@ -64,10 +64,10 @@ export function createConfig(entry) {
 					entry,
 					...productionConfig,
 				};
-			case 'prepare':
+			case 'preload':
 				return {
 					entry,
-					...prepareConfig,
+					...preloadConfig,
 				};
 			case 'development':
 				return {

@@ -10,7 +10,7 @@
 		"format": "nx run-many --target=format",
 		"lint": "nx run-many --target=lint",
 		"lint:fix": "nx run-many --target=lint:fix",
-		"prepare": "nx run-many --target=prepare"
+		"preload": "nx run-many --target=preload"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "catalog:",

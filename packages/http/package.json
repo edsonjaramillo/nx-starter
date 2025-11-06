@@ -21,7 +21,7 @@
 		"format": "prettier --write .",
 		"lint": "eslint . --max-warnings=0",
 		"lint:fix": "eslint . --fix",
-		"prepare": "tsdown --env.CONFIG=prepare"
+		"preload": "tsdown --env.CONFIG=preload"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "catalog:",

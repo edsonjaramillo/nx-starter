@@ -22,6 +22,7 @@
 		"eslint": "catalog:",
 		"prettier": "catalog:",
 		"prettier-plugin-packagejson": "catalog:",
+		"tsdown": "catalog:",
 		"typescript": "catalog:"
 	},
 	"publishConfig": {

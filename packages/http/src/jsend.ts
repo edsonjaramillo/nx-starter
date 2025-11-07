@@ -1,34 +1,79 @@
-export type ResponseStatus = 'success' | 'error' | 'warning' | 'info';
+import { z } from 'zod';
 
-interface RedirectData {
-	path: string;
+// Schema factory for success responses
+export function JSendSuccessSchema<T extends z.ZodTypeAny>(
+	payload: T
+): z.ZodObject<{
+	status: z.ZodLiteral<'success'>;
+	payload: T;
+	message: z.ZodString;
+}> {
+	return z.object({
+		status: z.literal('success'),
+		payload,
+		message: z.string(),
+	});
 }
 
-export interface JSendSuccess<T> {
+// Schema factory for info responses
+export function JSendInfoSchema<T extends z.ZodTypeAny>(
+	payload: T
+): z.ZodObject<{
+	status: z.ZodLiteral<'info'>;
+	payload: T;
+	message: z.ZodString;
+}> {
+	return z.object({
+		status: z.literal('info'),
+		payload,
+		message: z.string(),
+	});
+}
+
+// Schema factory for error responses
+export function JSendErrorSchema(): z.ZodObject<{
+	status: z.ZodLiteral<'error'>;
+	message: z.ZodString;
+}> {
+	return z.object({
+		status: z.literal('error'),
+		message: z.string(),
+	});
+}
+
+// Schema factory for redirect responses
+export function JSendRedirectSchema(): z.ZodObject<{
+	status: z.ZodLiteral<'redirect'>;
+	payload: z.ZodObject<{ path: z.ZodString }>;
+	message: z.ZodString;
+	redirect: z.ZodString;
+}> {
+	return z.object({
+		status: z.literal('redirect'),
+		payload: z.object({ path: z.string() }),
+		message: z.string(),
+		redirect: z.string(),
+	});
+}
+
+// Infer types from schemas
+interface JSendSuccess<T> {
 	status: 'success';
-	payload: T; // Data is required and of type T for success
+	payload: T;
 	message: string;
 }
 
-export interface JSendRedirect {
-	status: 'redirect';
-	payload: RedirectData;
-	message: string;
-	redirect: string;
-}
-
-export interface JSendInfo<T> {
+interface JSendInfo<T> {
 	status: 'info';
 	payload: T;
 	message: string;
 }
 
-export interface JSendError {
-	status: 'error';
-	payload?: undefined; // Data is optional and can be of any type for error (for error details)
-	message: string;
-}
+type JSendError = z.infer<ReturnType<typeof JSendErrorSchema>>;
 
+type JSendRedirect = z.infer<ReturnType<typeof JSendRedirectSchema>>;
+
+// Helper object with factory methods
 export const JSend = {
 	success<T>(payload: T, message: string): JSendSuccess<T> {
 		return { status: 'success', payload, message };

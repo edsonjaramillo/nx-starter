@@ -1,5 +1,5 @@
 import { createConfig } from '@repo/config/tsdown';
 
-const entry = ['src/server.ts'];
+const entry = ['src/index.ts'];
 
 export default createConfig(entry);

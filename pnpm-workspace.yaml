@@ -1,17 +1,14 @@
 packages:
   - apps/*
   - packages/*
-
 catalog:
   '@antfu/eslint-config': 5.4.1
   '@hono/node-server': 1.19.5
-  '@hono/standard-validator': ^0.1.5
   '@hono/zod-openapi': ^1.1.4
   '@ianvs/prettier-plugin-sort-imports': 4.7.0
   '@types/node': 24.10.0
   eslint: 9.37.0
   hono: 4.9.10
-  hono-openapi: ^1.1.1
   prettier: 3.6.2
   prettier-plugin-packagejson: 2.5.19
   tsdown: 0.15.6

@@ -23,6 +23,9 @@
 		"lint:fix": "eslint . --fix",
 		"preload": "tsdown --env.CONFIG=preload"
 	},
+	"dependencies": {
+		"zod": "catalog:"
+	},
 	"devDependencies": {
 		"@antfu/eslint-config": "catalog:",
 		"@ianvs/prettier-plugin-sort-imports": "catalog:",

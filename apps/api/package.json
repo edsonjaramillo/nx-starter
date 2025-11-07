@@ -16,7 +16,11 @@
 	},
 	"dependencies": {
 		"@hono/node-server": "catalog:",
-		"hono": "catalog:"
+		"@hono/zod-openapi": "catalog:",
+		"@repo/http": "workspace:^",
+		"@scalar/hono-api-reference": "^0.9.24",
+		"hono": "catalog:",
+		"zod": "catalog:"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "catalog:",

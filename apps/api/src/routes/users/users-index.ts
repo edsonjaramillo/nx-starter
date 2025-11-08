@@ -1,4 +1,4 @@
-import { createRouter } from '../../utils/open-api-utils';
+import { createRouter } from '../../utils/hono-utils';
 import { userHandlers } from './users-handlers';
 import { userRoutes } from './users-routes';
 

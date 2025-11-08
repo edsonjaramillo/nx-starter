@@ -1,5 +1,6 @@
 import { userRouter } from './routes/users/users-index';
-import configureOpenAPI, { createApp } from './utils/open-api-utils';
+import { createApp } from './utils/hono-utils';
+import { configureOpenAPI } from './utils/open-api-utils';
 
 const app = createApp();
 

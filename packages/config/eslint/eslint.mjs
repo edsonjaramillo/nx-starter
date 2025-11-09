@@ -11,6 +11,7 @@ export const base = {
 	},
 	rules: {
 		'jsonc/sort-keys': ['off'],
+		'style/arrow-parens': ['off'],
 		'style/comma-dangle': ['off'],
 		'style/quote-props': ['off'],
 		indent: ['off'],

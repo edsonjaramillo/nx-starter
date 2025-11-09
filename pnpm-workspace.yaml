@@ -9,8 +9,10 @@ catalog:
   '@types/node': 24.10.0
   eslint: 9.37.0
   hono: 4.9.10
-  prettier: 3.6.2
+  openapi-fetch: 0.15.0
+  openapi-typescript: 7.10.1
   prettier-plugin-packagejson: 2.5.19
+  prettier: 3.6.2
   tsdown: 0.15.6
   tsx: 4.20.6
   typescript: 5.9.3

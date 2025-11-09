@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json.schemastore.org/package",
-	"name": "@repo/generate",
+	"name": "@repo/open-api",
 	"version": "1.0.0",
 	"license": "MIT",
 	"type": "module",
@@ -11,6 +11,6 @@
 		"generate": "doppler run --project=\"nx\" --config=\"api\" --command=\"bash generate.sh\""
 	},
 	"devDependencies": {
-		"openapi-typescript": "^7.10.1"
+		"openapi-typescript": "7.10.1"
 	}
 }

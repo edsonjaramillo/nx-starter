@@ -19,17 +19,6 @@ readonly GREEN='\033[0;32m'
 readonly YELLOW='\033[1;33m'
 readonly NC='\033[0m' # No Color
 
-# Cleanup function
-cleanup() {
-	if [[ "$API_STARTED_BY_SCRIPT" == true ]] && [[ -n "$API_PID" ]]; then
-		log_info "Stopping API process ${API_PID} (started by script)..."
-		kill "$API_PID" 2>/dev/null || true
-		log_success "API server stopped"
-	fi
-}
-
-trap cleanup EXIT
-
 log_error() {
 	echo -e "${RED}Error: $*${NC}" >&2
 }
@@ -132,6 +121,12 @@ generate_types() {
 	fi
 
 	log_success "Types generated successfully at ${OUTPUT_FILE}"
+
+	if [[ "$API_STARTED_BY_SCRIPT" == true ]] && [[ -n "$API_PID" ]]; then
+		log_info "Stopping API process ${API_PID} (started by script)..."
+		kill "$API_PID" 2>/dev/null || true
+		log_success "API server stopped"
+	fi
 }
 
 # Main execution

@@ -8,11 +8,12 @@
 	"scripts": {
 		"build": "tsdown --env.CONFIG=production",
 		"clean": "rm -rf dist",
-		"dev": "doppler run --project=\"nx\" --config=\"dev\" --command=\"tsx watch src/index.ts\"",
+		"dev": "doppler run --project=\"nx\" --config=\"api\" --command=\"tsx watch src/index.ts\"",
 		"format": "prettier --write .",
 		"lint": "eslint . --max-warnings=0",
 		"lint:fix": "eslint . --fix",
-		"start": "node dist/index.js"
+		"start": "node ./dist/index.js",
+		"start:dev": "doppler run --project=\"nx\" --config=\"api\" --command=\"node dist/index.js\""
 	},
 	"dependencies": {
 		"@hono/node-server": "catalog:",

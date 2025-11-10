@@ -4,22 +4,23 @@ import createClient from 'openapi-fetch';
 
 export const Route = createFileRoute('/')({
 	component: App,
-	errorComponent: ({ error }) => {
-		return <div className="p">{error.message}</div>;
+	loader: async () => {
+		const client = createClient<paths>({ baseUrl: 'http://localhost:8080/' });
+		const { data, error, response } = await client.GET('/users');
+		const { statusText } = response;
+		if (error || !data) {
+			throw new Error(statusText);
+		}
+		return data.payload;
 	},
 });
 
 async function App() {
-	const client = createClient<paths>({ baseUrl: 'http://localhost:3000/' });
-	const { data, error } = await client.GET('/users');
-
-	if (error) {
-		throw new Error('Failed to fetch users');
-	}
+	const users = Route.useLoaderData();
 
 	return (
 		<div className="hello">
-			{data?.payload.map((user) => (
+			{users.map((user) => (
 				<div key={user.name}>
 					<h2>{user.name}</h2>
 					<p>{user.age}</p>

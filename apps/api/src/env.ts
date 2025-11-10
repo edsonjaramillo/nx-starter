@@ -11,7 +11,6 @@ export type Env = z.infer<typeof EnvSchema>;
 const result = EnvSchema.safeParse(process.env);
 
 if (result.error) {
-	console.error('❌ Invalid env:');
 	console.error(JSON.stringify(z.treeifyError(result.error), null, 2));
 	process.exit(1);
 }

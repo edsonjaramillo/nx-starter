@@ -11,6 +11,6 @@
 		"generate": "doppler run --project=\"nx\" --config=\"api\" --command=\"bash generate.sh\""
 	},
 	"devDependencies": {
-		"openapi-typescript": "7.10.1"
+		"openapi-typescript": "catalog:"
 	}
 }

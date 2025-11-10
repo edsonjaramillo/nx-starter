@@ -19,7 +19,7 @@
 		"@hono/node-server": "catalog:",
 		"@hono/zod-openapi": "catalog:",
 		"@repo/http": "workspace:",
-		"@scalar/hono-api-reference": "^0.9.24",
+		"@scalar/hono-api-reference": "0.9.24",
 		"hono": "catalog:",
 		"zod": "catalog:"
 	},

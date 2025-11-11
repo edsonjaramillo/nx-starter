@@ -27,7 +27,6 @@
 		"zod": "catalog:"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "catalog:",
 		"@ianvs/prettier-plugin-sort-imports": "catalog:",
 		"@repo/config": "workspace:*",
 		"eslint": "catalog:",

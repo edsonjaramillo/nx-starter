@@ -1,7 +1,3 @@
-import antfu from '@antfu/eslint-config';
-import { base } from '@repo/config/eslint';
+import { createEslintConfig } from '@repo/config/eslint';
 
-export default antfu({
-	...base,
-	type: 'lib',
-});
+export default createEslintConfig('lib');

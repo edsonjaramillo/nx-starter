@@ -24,7 +24,7 @@
 		"zod": "catalog:"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "catalog:",
+		"@eslint-react/eslint-plugin": "catalog:",
 		"@ianvs/prettier-plugin-sort-imports": "catalog:",
 		"@repo/config": "workspace:*",
 		"@repo/open-api": "workspace:*",
@@ -32,6 +32,8 @@
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"@vitejs/plugin-react": "catalog:",
+		"eslint-plugin-react-hooks": "catalog:",
+		"eslint-plugin-react-refresh": "catalog:",
 		"jsdom": "catalog:",
 		"openapi-fetch": "catalog:",
 		"prettier": "catalog:",

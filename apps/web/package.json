@@ -11,6 +11,7 @@
 		"test": "vitest run"
 	},
 	"dependencies": {
+		"@repo/validation": "workspace:*",
 		"@tailwindcss/vite": "catalog:",
 		"@tanstack/react-devtools": "catalog:",
 		"@tanstack/react-router": "catalog:",

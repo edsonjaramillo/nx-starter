@@ -1,14 +1,15 @@
 import process from 'node:process';
+import { zCoerceNumber, zNodeEnv } from '@repo/validation/core';
 import { z } from 'zod';
 
-const EnvSchema = z.object({
-	NODE_ENV: z.string().default('development'),
-	API_PORT: z.coerce.number().default(9999),
+const ApiEnvSchema = z.object({
+	NODE_ENV: zNodeEnv,
+	API_PORT: zCoerceNumber,
 });
 
-export type Env = z.infer<typeof EnvSchema>;
+export type ApiEnv = z.infer<typeof ApiEnvSchema>;
 
-const result = EnvSchema.safeParse(process.env);
+const result = ApiEnvSchema.safeParse(process.env);
 
 if (result.error) {
 	console.error(JSON.stringify(z.treeifyError(result.error), null, 2));

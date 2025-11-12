@@ -1,0 +1,39 @@
+{
+	"$schema": "https://json.schemastore.org/package",
+	"name": "@repo/validation",
+	"version": "1.0.0",
+	"license": "MIT",
+	"type": "module",
+	"exports": {
+		"./core": {
+			"types": "./dist/core.d.ts",
+			"import": "./dist/core.js"
+		},
+		"./helpers": {
+			"types": "./dist/helpers.d.ts",
+			"import": "./dist/helpers.js"
+		}
+	},
+	"scripts": {
+		"build": "tsup --env.CONFIG=production",
+		"clean": "rm -rf dist",
+		"dev": "tsup --env.CONFIG=development",
+		"format": "prettier --write .",
+		"lint": "eslint . --max-warnings=0",
+		"lint:fix": "eslint . --fix",
+		"preload": "tsup --env.CONFIG=preload"
+	},
+	"dependencies": {
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@ianvs/prettier-plugin-sort-imports": "catalog:",
+		"@repo/config": "workspace:*",
+		"@types/node": "catalog:",
+		"eslint": "catalog:",
+		"prettier": "catalog:",
+		"prettier-plugin-packagejson": "catalog:",
+		"tsup": "catalog:",
+		"typescript": "catalog:"
+	}
+}

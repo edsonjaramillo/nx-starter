@@ -149,6 +149,9 @@ importers:
       '@repo/http':
         specifier: workspace:^
         version: link:../../packages/http
+      '@repo/validation':
+        specifier: workspace:*
+        version: link:../../packages/validation
       '@scalar/hono-api-reference':
         specifier: 'catalog:'
         version: 0.9.24(hono@4.10.3)
@@ -189,6 +192,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@repo/validation':
+        specifier: workspace:*
+        version: link:../../packages/validation
       '@tailwindcss/vite':
         specifier: 'catalog:'
         version: 4.1.17(vite@7.2.2(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.20.6)(yaml@2.8.1))
@@ -332,6 +338,37 @@ importers:
       openapi-typescript:
         specifier: 'catalog:'
         version: 7.10.1(typescript@5.9.3)
+
+  packages/validation:
+    dependencies:
+      zod:
+        specifier: 'catalog:'
+        version: 4.1.12
+    devDependencies:
+      '@ianvs/prettier-plugin-sort-imports':
+        specifier: 'catalog:'
+        version: 4.7.0(@vue/compiler-sfc@3.5.24)(prettier@3.6.2)
+      '@repo/config':
+        specifier: workspace:*
+        version: link:../config
+      '@types/node':
+        specifier: 'catalog:'
+        version: 24.10.0
+      eslint:
+        specifier: 'catalog:'
+        version: 9.38.0(jiti@2.6.1)
+      prettier:
+        specifier: 'catalog:'
+        version: 3.6.2
+      prettier-plugin-packagejson:
+        specifier: 'catalog:'
+        version: 2.5.19(prettier@3.6.2)
+      tsup:
+        specifier: 'catalog:'
+        version: 8.5.0(jiti@2.6.1)(postcss@8.5.6)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
 
 packages:
 

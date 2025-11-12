@@ -10,4 +10,4 @@ const WebEnvSchema = z.object({
 
 export type WebEnv = z.infer<typeof WebEnvSchema>;
 
-export const env = parseEnv(WebEnvSchema, process.env);
+export const webEnv = parseEnv(WebEnvSchema, process.env);

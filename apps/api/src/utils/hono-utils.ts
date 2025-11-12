@@ -3,7 +3,7 @@ import { JSend } from '@repo/http/jsend';
 import { HttpStatus } from '@repo/http/status-codes';
 import { requestId } from 'hono/request-id';
 
-export function createRouter() {
+export function createRouter(): OpenAPIHono {
 	return new OpenAPIHono({
 		strict: false,
 		defaultHook: (result, c) => {
@@ -17,7 +17,7 @@ export function createRouter() {
 	});
 }
 
-export function createApp() {
+export function createApp(): OpenAPIHono {
 	const app = createRouter();
 	app.use(requestId());
 	return app;

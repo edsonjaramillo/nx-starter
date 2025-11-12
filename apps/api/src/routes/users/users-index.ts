@@ -1,8 +1,8 @@
 import { createRouter } from '../../utils/hono-utils';
-import { userHandlers } from './users-handlers';
-import { userRoutes } from './users-routes';
+import { UserHandlers } from './users-handlers';
+import { UserRoutes } from './users-routes';
 
 export const userRouter = createRouter().openapi(
-	userRoutes.list,
-	userHandlers.list
+	UserRoutes.list,
+	UserHandlers.list
 );

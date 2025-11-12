@@ -25,5 +25,6 @@ export function createEslintConfig(type, opts) {
 			'style/quote-props': ['off'],
 			indent: ['off'],
 		},
+		ignores: ['**/*/routeTree.gen.ts'],
 	});
 }

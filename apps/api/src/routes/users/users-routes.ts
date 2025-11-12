@@ -1,5 +1,5 @@
 import { createRoute } from '@hono/zod-openapi';
-import { JSendErrorSchema, JSendSuccessSchema } from '@repo/http/jsend';
+import { JSendSuccessSchema } from '@repo/http/jsend';
 import { HttpStatus } from '@repo/http/status-codes';
 import { z } from 'zod';
 import { jsonContent } from '../../utils/open-api-utils';
@@ -11,20 +11,18 @@ const UserSchema = z.object({
 	age: z.number(),
 });
 
-const list = createRoute({
-	path: '/users',
-	method: 'get',
-	tags,
-	responses: {
-		[HttpStatus.OK]: jsonContent(
-			JSendSuccessSchema(z.array(UserSchema)),
-			'Users is good'
-		),
-	},
-});
+export class UserRoutes {
+	static list = createRoute({
+		path: '/users',
+		method: 'get',
+		tags,
+		responses: {
+			[HttpStatus.OK]: jsonContent(
+				JSendSuccessSchema(z.array(UserSchema)),
+				'Users is good'
+			),
+		},
+	});
+}
 
-export const userRoutes = {
-	list,
-};
-
-export type UserListRoute = typeof userRoutes.list;
+export type UserListRoute = typeof UserRoutes.list;

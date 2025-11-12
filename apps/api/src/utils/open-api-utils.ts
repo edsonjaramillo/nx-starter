@@ -2,6 +2,7 @@ import type { AppOpenAPI } from './open-api-types';
 import { Scalar } from '@scalar/hono-api-reference';
 import packageJSON from '../../package.json' with { type: 'json' };
 
+// eslint-disable-next-line ts/explicit-function-return-type
 export function jsonContent<T>(schema: T, description: string) {
 	return {
 		content: {
@@ -13,7 +14,7 @@ export function jsonContent<T>(schema: T, description: string) {
 	};
 }
 
-export function configureOpenAPI(app: AppOpenAPI) {
+export function configureOpenAPI(app: AppOpenAPI): void {
 	app.doc('/doc', {
 		openapi: '3.0.0',
 		info: {

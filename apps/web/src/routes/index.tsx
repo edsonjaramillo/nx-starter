@@ -15,7 +15,7 @@ export const Route = createFileRoute('/')({
 	},
 });
 
-async function App() {
+function App() {
 	const users = Route.useLoaderData();
 
 	return (

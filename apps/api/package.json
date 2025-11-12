@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"build": "tsdown --env.CONFIG=production",
+		"build": "tsup --env.CONFIG=production",
 		"clean": "rm -rf dist",
 		"dev": "doppler run --project=\"nx\" --config=\"api\" --command=\"tsx watch src/index.ts\"",
 		"format": "prettier --write .",
@@ -30,7 +30,7 @@
 		"eslint": "catalog:",
 		"prettier": "catalog:",
 		"prettier-plugin-packagejson": "catalog:",
-		"tsdown": "catalog:",
+		"tsup": "catalog:",
 		"tsx": "catalog:",
 		"typescript": "catalog:"
 	}

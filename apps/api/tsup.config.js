@@ -1,4 +1,4 @@
-import { createConfig } from '@repo/config/tsdown';
+import { createConfig } from '@repo/config/tsup';
 
 const entry = ['src/index.ts'];
 

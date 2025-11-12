@@ -1,55 +1,53 @@
-import { defineConfig } from 'tsdown';
+import { defineConfig } from 'tsup';
 
 /**
- * @type {import('tsdown').Options}
+ * @type {import('tsup').Options}
  */
 const baseConfig = {
-	outDir: 'dist',
 	format: 'esm',
+	outDir: 'dist',
 	target: 'es2022',
+	clean: true,
+	minify: false,
+	splitting: true,
+	treeshake: true,
+	dts: {
+		sourcemap: false,
+	},
 };
 
 /**
- * @type {import('tsdown').Options}
+ * @type {import('tsup').Options}
  */
 const preloadConfig = {
 	...baseConfig,
-	clean: true,
-	dts: {
-		sourcemap: false,
-	},
-	treeshake: false,
 };
 
 /**
- * @type {import('tsdown').Options}
+ * @type {import('tsup').Options}
  */
 const productionConfig = {
 	...baseConfig,
-	clean: true,
+	dts: false,
 	minify: true,
-	treeshake: true,
 };
 
 /**
- * @type {import('tsdown').Options}
+ * @type {import('tsup').Options}
  */
 const developmentConfig = {
 	...baseConfig,
+	clean: false,
 	watch: true,
-	dts: {
-		sourcemap: false,
-	},
-	treeshake: false,
 };
 
 /**
- * @typedef {import('tsdown').UserConfigFn} UserConfigFn
+ * @typedef {import('tsup').UserConfigFn} UserConfigFn
  */
 
 /**
  * @param {string | string[]} entry
- * @returns {UserConfigFn} returns a tsdown config function
+ * @returns {UserConfigFn} returns a tsup config function
  */
 export function createConfig(entry) {
 	return defineConfig((options) => {

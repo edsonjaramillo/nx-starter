@@ -27,6 +27,7 @@ catalog:
   eslint: 9.38.0
   hono: 4.10.3
   jsdom: 27.1.0
+  nx: 21.6.3
   openapi-fetch: 0.15.0
   openapi-typescript: 7.10.1
   pg: 8.16.3

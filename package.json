@@ -19,7 +19,7 @@
 		"@ianvs/prettier-plugin-sort-imports": "catalog:",
 		"@repo/config": "workspace:*",
 		"eslint": "catalog:",
-		"nx": "21.6.3",
+		"nx": "catalog:",
 		"prettier": "catalog:",
 		"prettier-plugin-packagejson": "catalog:",
 		"typescript": "catalog:"

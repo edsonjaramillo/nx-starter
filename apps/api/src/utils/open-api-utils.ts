@@ -2,7 +2,6 @@ import type { AppOpenAPI, ZodSchema } from './open-api-types';
 import { Scalar } from '@scalar/hono-api-reference';
 import packageJSON from '../../package.json' with { type: 'json' };
 
-// eslint-disable-next-line ts/explicit-function-return-type
 export function jsonContent<T>(schema: T, description: string) {
 	return {
 		content: {
@@ -14,7 +13,6 @@ export function jsonContent<T>(schema: T, description: string) {
 	};
 }
 
-// eslint-disable-next-line ts/explicit-function-return-type
 export function jsonContentRequired<T extends ZodSchema>(
 	schema: T,
 	description: string

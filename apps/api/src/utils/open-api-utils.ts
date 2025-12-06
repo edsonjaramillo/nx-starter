@@ -1,4 +1,4 @@
-import type { AppOpenAPI } from './open-api-types';
+import type { AppOpenAPI, ZodSchema } from './open-api-types';
 import { Scalar } from '@scalar/hono-api-reference';
 import packageJSON from '../../package.json' with { type: 'json' };
 

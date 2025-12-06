@@ -6,7 +6,7 @@ import type {
 } from '@hono/zod-openapi';
 import type { Schema } from 'hono';
 
-export type ZodSchema = z.ZodTypeAny;
+export type ZodSchema = z.ZodUnion | z.ZodObject | z.ZodArray<z.ZodObject>;
 
 export interface AppBindings {
 	// Variables: {

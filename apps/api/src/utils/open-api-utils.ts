@@ -14,6 +14,17 @@ export function jsonContent<T>(schema: T, description: string) {
 	};
 }
 
+// eslint-disable-next-line ts/explicit-function-return-type
+export function jsonContentRequired<T extends ZodSchema>(
+	schema: T,
+	description: string
+) {
+	return {
+		...jsonContent(schema, description),
+		required: true,
+	};
+}
+
 export function configureOpenAPI(app: AppOpenAPI): void {
 	app.doc('/doc', {
 		openapi: '3.0.0',

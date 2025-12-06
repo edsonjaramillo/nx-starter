@@ -1,8 +1,7 @@
 import { createRoute } from '@hono/zod-openapi';
 import { JSendSuccessSchema } from '@repo/http/jsend';
 import { HttpStatus } from '@repo/http/status-codes';
-import { z } from 'zod';
-import { jsonContent } from '../../utils/open-api-utils';
+import { z } from 'zod/v4';
 
 const tags = ['Users'];
 

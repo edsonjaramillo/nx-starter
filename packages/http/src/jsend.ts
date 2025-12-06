@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from 'zod/v4';
 
 // Schema factory for success responses
 export function JSendSuccessSchema<T extends z.ZodTypeAny>(

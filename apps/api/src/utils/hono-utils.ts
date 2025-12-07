@@ -8,10 +8,8 @@ export function createRouter(): OpenAPIHono {
 		strict: false,
 		defaultHook: (result, c) => {
 			if (!result.success) {
-				return c.json(
-					JSend.error('Failed validation.'),
-					HttpStatus.UNPROCESSABLE_ENTITY
-				);
+				console.error('Validation failed:', result.error);
+				return c.json(JSend.error('Failed validation.'), HttpStatus.UNPROCESSABLE_ENTITY);
 			}
 		},
 	});

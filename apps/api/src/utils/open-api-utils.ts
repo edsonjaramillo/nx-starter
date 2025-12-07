@@ -28,7 +28,7 @@ export function configureOpenAPI(app: AppOpenAPI): void {
 		openapi: '3.0.0',
 		info: {
 			version: packageJSON.version,
-			title: 'Tasks API',
+			title: 'Nx Monorepo API',
 		},
 	});
 

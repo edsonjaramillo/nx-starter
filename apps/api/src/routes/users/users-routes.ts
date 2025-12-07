@@ -1,6 +1,8 @@
 import { createRoute } from '@hono/zod-openapi';
+import { JSendErrorSchema, JSendSuccessSchema } from '@repo/http/jsend';
 import { HttpStatus } from '@repo/http/status-codes';
 import { z } from 'zod/v4';
+import { createUserSchema, selectUserSchema } from '../../db/schema/users-schema';
 import { jsonContent, jsonContentRequired } from '../../utils/open-api-utils';
 
 const tags = ['Users'];
@@ -11,7 +13,7 @@ export class UserRoutes {
 		method: 'get',
 		tags,
 		responses: {
-			[HttpStatus.OK]: jsonContent(z.object(), 'Users is good'),
+			[HttpStatus.OK]: jsonContent(JSendSuccessSchema(z.array(selectUserSchema)), 'Get users'),
 		},
 	});
 
@@ -20,10 +22,14 @@ export class UserRoutes {
 		method: 'post',
 		tags,
 		request: {
-			body: jsonContentRequired(z.object(), 'Insert User'),
+			body: jsonContentRequired(createUserSchema, 'Insert user schema'),
 		},
 		responses: {
-			[HttpStatus.CREATED]: jsonContent(z.object(), 'Create User is good'),
+			[HttpStatus.CONFLICT]: jsonContent(JSendErrorSchema(), 'User already exists'),
+			[HttpStatus.CREATED]: jsonContent(
+				JSendSuccessSchema(z.object()),
+				'Create user is successful'
+			),
 		},
 	});
 }

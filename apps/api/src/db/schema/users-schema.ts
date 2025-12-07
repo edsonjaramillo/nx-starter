@@ -1,5 +1,7 @@
 import { pgTable, text } from 'drizzle-orm/pg-core';
-import { createdAt, id, updatedAt } from './shared';
+import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
+import { z } from 'zod/v4';
+import { createdAt, id, omitInsertColumns, updatedAt } from './shared';
 
 export const usersTable = pgTable('users', {
 	id,
@@ -8,3 +10,18 @@ export const usersTable = pgTable('users', {
 	name: text().notNull(),
 	email: text().notNull().unique(),
 });
+
+export const userColumns = {
+	id: true,
+	name: true,
+	email: true,
+} as const;
+
+export const selectUserSchema = createSelectSchema(usersTable).pick(userColumns);
+
+export const createUserSchema = createInsertSchema(usersTable, {
+	email: z.email(),
+})
+	.omit(omitInsertColumns)
+	.openapi({ example: { name: 'John Doe', email: 'johdoe@me.com' } });
+export type CreateUserSchema = z.infer<typeof createUserSchema>;

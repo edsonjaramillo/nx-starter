@@ -22,6 +22,7 @@ catalog:
   '@vitejs/plugin-react': 5.1.0
   drizzle-kit: 1.0.0-beta.1-69a2ca0
   drizzle-orm: 1.0.0-beta.2-6565b14
+  drizzle-zod: 0.8.3
   eslint-plugin-react-hooks: 7.0.1
   eslint-plugin-react-refresh: 0.4.24
   eslint: 9.38.0

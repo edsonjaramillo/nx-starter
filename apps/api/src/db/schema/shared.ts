@@ -7,3 +7,9 @@ export const updatedAt = timestamp()
 	.notNull()
 	.defaultNow()
 	.$onUpdate(() => new Date());
+
+export const omitInsertColumns = {
+	id: true,
+	createdAt: true,
+	updatedAt: true,
+} as const;

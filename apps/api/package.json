@@ -27,6 +27,7 @@
 		"@scalar/hono-api-reference": "catalog:",
 		"drizzle-kit": "catalog:",
 		"drizzle-orm": "catalog:",
+		"drizzle-zod": "catalog:",
 		"hono": "catalog:",
 		"pg": "catalog:",
 		"uuidv7": "catalog:",

@@ -8,6 +8,7 @@ const base = {
 		'@ianvs/prettier-plugin-sort-imports',
 	],
 	trailingComma: 'es5',
+	printWidth: 100,
 	semi: true,
 	useTabs: true,
 	singleQuote: true,

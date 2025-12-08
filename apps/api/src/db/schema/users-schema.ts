@@ -1,6 +1,6 @@
+import { z } from '@hono/zod-openapi';
 import { pgTable, text } from 'drizzle-orm/pg-core';
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
-import { z } from 'zod/v4';
 import { createdAt, id, omitInsertColumns, updatedAt } from './shared';
 
 export const usersTable = pgTable('users', {
@@ -24,4 +24,5 @@ export const createUserSchema = createInsertSchema(usersTable, {
 })
 	.omit(omitInsertColumns)
 	.openapi({ example: { name: 'John Doe', email: 'johdoe@me.com' } });
+
 export type CreateUserSchema = z.infer<typeof createUserSchema>;

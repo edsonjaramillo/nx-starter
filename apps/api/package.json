@@ -30,8 +30,7 @@
 		"drizzle-zod": "catalog:",
 		"hono": "catalog:",
 		"pg": "catalog:",
-		"uuidv7": "catalog:",
-		"zod": "catalog:"
+		"uuidv7": "catalog:"
 	},
 	"devDependencies": {
 		"@ianvs/prettier-plugin-sort-imports": "catalog:",

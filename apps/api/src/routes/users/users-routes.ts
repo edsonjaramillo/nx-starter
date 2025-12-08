@@ -1,7 +1,6 @@
-import { createRoute } from '@hono/zod-openapi';
+import { createRoute, z } from '@hono/zod-openapi';
 import { JSendErrorSchema, JSendSuccessSchema } from '@repo/http/jsend';
 import { HttpStatus } from '@repo/http/status-codes';
-import { z } from 'zod/v4';
 import { createUserSchema, selectUserSchema } from '../../db/schema/users-schema';
 import { jsonContent, jsonContentRequired } from '../../utils/open-api-utils';
 

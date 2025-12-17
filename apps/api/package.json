@@ -25,6 +25,7 @@
 		"@repo/http": "workspace:^",
 		"@repo/validation": "workspace:*",
 		"@scalar/hono-api-reference": "catalog:",
+		"argon2": "catalog:",
 		"drizzle-kit": "catalog:",
 		"drizzle-orm": "catalog:",
 		"drizzle-zod": "catalog:",

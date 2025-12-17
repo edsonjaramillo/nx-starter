@@ -9,6 +9,7 @@ export const usersTable = pgTable('users', {
 	updatedAt,
 	name: text().notNull(),
 	email: text().notNull().unique(),
+	password: text().notNull(),
 });
 
 export const userColumns = {
@@ -21,8 +22,15 @@ export const selectUserSchema = createSelectSchema(usersTable).pick(userColumns)
 
 export const createUserSchema = createInsertSchema(usersTable, {
 	email: z.email(),
+	password: z.string().min(8).max(64),
 })
 	.omit(omitInsertColumns)
-	.openapi({ example: { name: 'John Doe', email: 'johdoe@me.com' } });
+	.openapi({
+		example: {
+			name: 'John Doe',
+			email: 'johdoe@me.com',
+			password: 'abcd1234',
+		},
+	});
 
 export type CreateUserSchema = z.infer<typeof createUserSchema>;

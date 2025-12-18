@@ -26,6 +26,7 @@
 		"preload": "tsup --env.CONFIG=preload"
 	},
 	"dependencies": {
+		"@hono/zod-openapi": "catalog:",
 		"zod": "catalog:"
 	},
 	"devDependencies": {

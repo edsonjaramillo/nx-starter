@@ -383,6 +383,9 @@ importers:
 
   packages/validation:
     dependencies:
+      '@hono/zod-openapi':
+        specifier: 'catalog:'
+        version: 1.1.4(hono@4.10.3)(zod@4.1.12)
       zod:
         specifier: 'catalog:'
         version: 4.1.12

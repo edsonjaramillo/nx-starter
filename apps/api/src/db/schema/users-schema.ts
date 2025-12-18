@@ -1,4 +1,5 @@
-import { z } from '@hono/zod-openapi';
+import type { z } from '@hono/zod-openapi';
+import { zEmail, zPassword } from '@repo/validation/core';
 import { pgTable, text } from 'drizzle-orm/pg-core';
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
 import { createdAt, id, omitInsertColumns, updatedAt } from './shared';
@@ -21,8 +22,8 @@ export const userColumns = {
 export const selectUserSchema = createSelectSchema(usersTable).pick(userColumns);
 
 export const createUserSchema = createInsertSchema(usersTable, {
-	email: z.email(),
-	password: z.string().min(8).max(64),
+	email: zEmail,
+	password: zPassword,
 })
 	.omit(omitInsertColumns)
 	.openapi({

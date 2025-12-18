@@ -1,5 +1,5 @@
 import process from 'node:process';
-import { z } from 'zod/v4';
+import { z } from '@hono/zod-openapi';
 
 export function parseEnv<T extends z.ZodTypeAny>(
 	schema: T,

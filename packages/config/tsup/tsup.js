@@ -4,7 +4,7 @@ import { defineConfig } from 'tsup';
  * @type {import('tsup').Options}
  */
 const baseConfig = {
-	format: 'esm',
+	format: ['cjs', 'esm'],
 	outDir: 'dist',
 	target: 'es2022',
 	clean: true,

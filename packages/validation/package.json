@@ -7,10 +7,12 @@
 	"exports": {
 		"./core": {
 			"types": "./dist/core.d.ts",
+			"require": "./dist/core.cjs",
 			"import": "./dist/core.js"
 		},
 		"./helpers": {
 			"types": "./dist/helpers.d.ts",
+			"require": "./dist/helpers.cjs",
 			"import": "./dist/helpers.js"
 		}
 	},

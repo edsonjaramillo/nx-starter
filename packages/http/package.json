@@ -7,10 +7,12 @@
 	"exports": {
 		"./jsend": {
 			"types": "./dist/jsend.d.ts",
+			"require": "./dist/jsend.cjs",
 			"import": "./dist/jsend.js"
 		},
 		"./status-codes": {
 			"types": "./dist/status-codes.d.ts",
+			"require": "./dist/status-codes.cjs",
 			"import": "./dist/status-codes.js"
 		}
 	},

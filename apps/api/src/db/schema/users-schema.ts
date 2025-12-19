@@ -28,8 +28,8 @@ export const createUserSchema = createInsertSchema(usersTable, {
 	.omit(omitInsertColumns)
 	.openapi({
 		example: {
-			name: 'John Doe',
-			email: 'johdoe@me.com',
+			name: 'Tony Stark',
+			email: 'tony.stark@example.com',
 			password: 'abcd1234',
 		},
 	});

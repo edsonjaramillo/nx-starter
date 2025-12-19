@@ -11,6 +11,7 @@
 		"db:generate": "doppler run --project=\"nx\" --config=\"api\" --command=\"drizzle-kit generate\"",
 		"db:migrate": "doppler run --project=\"nx\" --config=\"api\" --command=\"drizzle-kit migrate\"",
 		"db:push": "doppler run --project=\"nx\" --config=\"api\" --command=\"drizzle-kit push\"",
+		"db:seed": "doppler run --project=\"nx\" --config=\"api\" --command=\"tsx src/db/scripts/seed.ts\"",
 		"db:studio": "doppler run --project=\"nx\" --config=\"api\" --command=\"drizzle-kit studio\"",
 		"dev": "doppler run --project=\"nx\" --config=\"api\" --command=\"tsx watch src/index.ts\"",
 		"format": "prettier --write .",

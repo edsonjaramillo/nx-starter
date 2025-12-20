@@ -1,8 +1,7 @@
-import type { z } from '@hono/zod-openapi';
-import { zEmail, zPassword } from '@repo/validation/core';
+import { zEmail, zPassword, zString } from '@repo/validation/core';
 import { pgTable, text } from 'drizzle-orm/pg-core';
-import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
-import { createdAt, id, omitInsertColumns, updatedAt } from './shared';
+import { z } from 'zod';
+import { createdAt, id, updatedAt } from './shared';
 
 export const usersTable = pgTable('users', {
 	id,
@@ -19,19 +18,16 @@ export const userColumns = {
 	email: true,
 } as const;
 
-export const selectUserSchema = createSelectSchema(usersTable).pick(userColumns);
-
-export const createUserSchema = createInsertSchema(usersTable, {
+export const selectUserSchema = z.object({
+	id: zString,
+	name: zString,
 	email: zEmail,
-	password: zPassword,
-})
-	.omit(omitInsertColumns)
-	.openapi({
-		example: {
-			name: 'Tony Stark',
-			email: 'tony.stark@example.com',
-			password: 'abcd1234',
-		},
-	});
+});
 
-export type CreateUserSchema = z.infer<typeof createUserSchema>;
+export const insertUserSchema = z.object({
+	name: zString.meta({ example: 'Tony Stark' }),
+	email: zEmail.meta({ example: 'tony.stark@example.com' }),
+	password: zPassword.meta({ example: 'abcd1234' }),
+});
+
+export type CreateUserSchema = z.infer<typeof insertUserSchema>;

@@ -22,7 +22,6 @@
 		"dev": "tsup --env.CONFIG=development",
 		"format": "prettier --write .",
 		"lint": "eslint . --max-warnings=0",
-		"lint:fix": "eslint . --fix",
 		"preload": "tsup --env.CONFIG=preload"
 	},
 	"dependencies": {

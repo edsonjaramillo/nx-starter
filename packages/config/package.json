@@ -12,8 +12,7 @@
 	},
 	"scripts": {
 		"format": "prettier --write .",
-		"lint": "eslint . --max-warnings=0",
-		"lint:fix": "eslint . --fix"
+		"lint": "eslint . --max-warnings=0"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "catalog:",

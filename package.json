@@ -11,7 +11,6 @@
 		"docker:up": "doppler run --project=\"nx\" --config=\"api\" --command=\"docker compose up -d\"",
 		"format": "nx run-many --target=format",
 		"lint": "nx run-many --target=lint",
-		"lint:fix": "nx run-many --target=lint:fix",
 		"preload": "nx run-many --target=preload"
 	},
 	"devDependencies": {

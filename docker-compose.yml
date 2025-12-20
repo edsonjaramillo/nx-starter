@@ -2,6 +2,8 @@ name: nx-monorepo
 volumes:
   postgres_data:
   cache_data:
+  caddy_data:
+  caddy_config:
 services:
   postgres:
     hostname: nx-monorepo-starter-postgres
@@ -29,3 +31,22 @@ services:
       - cache_data:/data
     command: redis-server --save 60 1 --loglevel warning --requirepass ${REDIS_PASSWORD}
     restart: unless-stopped
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - caddy_network
+networks:
+  caddy_network:
+    driver: bridge

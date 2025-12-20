@@ -6,7 +6,7 @@ export const Route = createFileRoute('/')({
 	component: App,
 	loader: async () => {
 		const client = createClient<paths>({ baseUrl: 'http://localhost:8080/' });
-		const { data, error, response } = await client.GET('/users');
+		const { data, error, response } = await client.GET('/users/');
 		const { statusText } = response;
 		if (error || !data) {
 			throw new Error(statusText);
@@ -23,7 +23,7 @@ function App() {
 			{users.map((user) => (
 				<div key={user.name}>
 					<h2>{user.name}</h2>
-					<p>{user.age}</p>
+					<p>{user.email}</p>
 				</div>
 			))}
 		</div>

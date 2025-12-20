@@ -4,7 +4,6 @@ import { UserQueries } from '../queries/user-queries';
 import { usersTable } from '../schema/users-schema';
 
 const names = [
-	'Tony Stark',
 	'Steve Rogers',
 	'Bruce Banner',
 	'Natasha Romanoff',

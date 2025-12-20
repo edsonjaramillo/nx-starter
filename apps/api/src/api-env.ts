@@ -1,7 +1,7 @@
 import process from 'node:process';
-import { z } from '@hono/zod-openapi';
 import { zCoerceNumber, zNodeEnv, zString } from '@repo/validation/core';
 import { parseEnv } from '@repo/validation/helpers';
+import { z } from 'zod';
 
 const ApiEnvSchema = z.object({
 	NODE_ENV: zNodeEnv,

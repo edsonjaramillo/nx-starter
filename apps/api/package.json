@@ -21,16 +21,16 @@
 		"start:dev": "doppler run --project=\"nx\" --config=\"api\" --command=\"node dist/index.js\""
 	},
 	"dependencies": {
-		"@hono/node-server": "catalog:",
-		"@hono/zod-openapi": "catalog:",
+		"@fastify/swagger": "catalog:",
 		"@repo/http": "workspace:^",
 		"@repo/validation": "workspace:*",
-		"@scalar/hono-api-reference": "catalog:",
+		"@scalar/fastify-api-reference": "catalog:",
 		"argon2": "catalog:",
 		"drizzle-kit": "catalog:",
 		"drizzle-orm": "catalog:",
 		"drizzle-zod": "catalog:",
-		"hono": "catalog:",
+		"fastify": "catalog:",
+		"fastify-type-provider-zod": "catalog:",
 		"pg": "catalog:",
 		"uuidv7": "catalog:",
 		"zod": "catalog:"

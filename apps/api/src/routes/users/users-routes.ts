@@ -1,37 +1,59 @@
-import { createRoute, z } from '@hono/zod-openapi';
-import { JSendErrorSchema, JSendSuccessSchema } from '@repo/http/jsend';
+import type { FastifyInstance, FastifyPluginOptions } from 'fastify';
+import type { ZodTypeProvider } from 'fastify-type-provider-zod';
+import { JSend, JSendErrorSchema, JSendSuccessSchema } from '@repo/http/jsend';
 import { HttpStatus } from '@repo/http/status-codes';
-import { createUserSchema, selectUserSchema } from '../../db/schema/users-schema';
-import { jsonContent, jsonContentRequired } from '../../utils/open-api-utils';
+import { z } from 'zod';
+import { UserQueries } from '../../db/queries/user-queries';
+import { insertUserSchema, selectUserSchema } from '../../db/schema/users-schema';
+import { Password } from '../../utils/password';
 
 const tags = ['Users'];
 
-export class UserRoutes {
-	static list = createRoute({
-		path: '/users',
-		method: 'get',
-		tags,
-		responses: {
-			[HttpStatus.OK]: jsonContent(JSendSuccessSchema(z.array(selectUserSchema)), 'Get users'),
+export function userRouter(fastify: FastifyInstance, _: FastifyPluginOptions) {
+	// Get users
+	fastify.withTypeProvider<ZodTypeProvider>().get(
+		'/',
+		{
+			schema: {
+				response: {
+					[HttpStatus.OK]: JSendSuccessSchema(z.array(selectUserSchema)),
+				},
+				tags,
+				description: 'Get a list of users',
+			},
 		},
-	});
+		async (_, reply) => {
+			const users = await UserQueries.getUsers();
+			return reply.send(JSend.success(users, 'Got users'));
+		}
+	);
 
-	static create = createRoute({
-		path: '/users',
-		method: 'post',
-		tags,
-		request: {
-			body: jsonContentRequired(createUserSchema, 'Insert user schema'),
+	// Create user
+	fastify.withTypeProvider<ZodTypeProvider>().post(
+		'/',
+		{
+			schema: {
+				body: insertUserSchema,
+				response: {
+					[HttpStatus.CREATED]: JSendSuccessSchema(z.object({})),
+					[HttpStatus.CONFLICT]: JSendErrorSchema(),
+				},
+				tags,
+				description: 'Create a new user',
+			},
 		},
-		responses: {
-			[HttpStatus.CONFLICT]: jsonContent(JSendErrorSchema(), 'User already exists'),
-			[HttpStatus.CREATED]: jsonContent(
-				JSendSuccessSchema(z.object()),
-				'Create user is successful'
-			),
-		},
-	});
+		async (request, reply) => {
+			const user = request.body;
+
+			const existingUser = await UserQueries.getUserByEmail(user.email);
+			if (existingUser) {
+				return reply.status(HttpStatus.CONFLICT).send(JSend.error('User already exists.'));
+			}
+
+			const hashedPassword = await Password.hash(user.password);
+
+			await UserQueries.createUser({ ...user, password: hashedPassword });
+			return reply.status(HttpStatus.CREATED).send(JSend.success({}, 'User created succesfully.'));
+		}
+	);
 }
-
-export type UserListRoute = typeof UserRoutes.list;
-export type UserCreateRoute = typeof UserRoutes.create;

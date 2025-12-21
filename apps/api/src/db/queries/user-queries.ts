@@ -1,10 +1,15 @@
+import type { Pagination } from '../../middleware/paginate';
 import type { CreateUserSchema } from '../schema/users-schema';
 import { db } from '../database-client';
 import { userColumns, usersTable } from '../schema/users-schema';
 
 export class UserQueries {
-	static async getUsers() {
-		const users = await db.query.usersTable.findMany({ columns: userColumns });
+	static async getUsers(pagination: Pagination) {
+		const users = await db.query.usersTable.findMany({
+			columns: userColumns,
+			limit: pagination.limit,
+			offset: pagination.offset,
+		});
 		return users;
 	}
 

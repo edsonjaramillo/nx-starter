@@ -5,6 +5,7 @@ import { HttpStatus } from '@repo/http/status-codes';
 import { z } from 'zod';
 import { UserQueries } from '../../db/queries/user-queries';
 import { insertUserSchema, selectUserSchema } from '../../db/schema/users-schema';
+import { paginate, paginationSchema } from '../../middleware/paginate';
 import { Password } from '../../utils/password';
 
 const tags = ['Users'];
@@ -14,7 +15,9 @@ export function userRouter(fastify: FastifyInstance, _: FastifyPluginOptions) {
 	fastify.withTypeProvider<ZodTypeProvider>().get(
 		'/',
 		{
+			preHandler: [paginate],
 			schema: {
+				querystring: paginationSchema,
 				response: {
 					[HttpStatus.OK]: JSendSuccessSchema(z.array(selectUserSchema)),
 				},
@@ -22,8 +25,9 @@ export function userRouter(fastify: FastifyInstance, _: FastifyPluginOptions) {
 				description: 'Get a list of users',
 			},
 		},
-		async (_, reply) => {
-			const users = await UserQueries.getUsers();
+		async (request, reply) => {
+			console.warn(request.pagination);
+			const users = await UserQueries.getUsers(request.pagination);
 			return reply.send(JSend.success(users, 'Got users'));
 		}
 	);

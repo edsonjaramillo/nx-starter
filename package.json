@@ -4,12 +4,14 @@
 	"version": "1.0.0",
 	"private": true,
 	"license": "MIT",
+	"type": "module",
 	"scripts": {
 		"build": "nx run-many --target=build",
 		"clean": "nx run-many --target=clean",
 		"docker:down": "doppler run --project=\"nx\" --config=\"api\" --command=\"docker compose down\"",
 		"docker:up": "doppler run --project=\"nx\" --config=\"api\" --command=\"docker compose up -d\"",
 		"format": "nx run-many --target=format",
+		"format:check": "nx run-many --target=format:check",
 		"lint": "nx run-many --target=lint",
 		"noEmit": "nx run-many --target=noEmit",
 		"preload": "nx run-many --target=preload"

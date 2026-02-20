@@ -5,13 +5,14 @@
 	"license": "MIT",
 	"type": "module",
 	"exports": {
-		"./eslint": "./eslint/eslint.mjs",
-		"./prettier": "./prettier/prettier.mjs",
+		"./eslint": "./eslint/eslint.js",
+		"./prettier": "./prettier/prettier.js",
 		"./tsconfig/standard": "./tsconfig/standard.json",
 		"./tsup": "./tsup/tsup.js"
 	},
 	"scripts": {
 		"format": "prettier --write .",
+		"format:check": "prettier . --check",
 		"lint": "eslint . --max-warnings=0"
 	},
 	"devDependencies": {

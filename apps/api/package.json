@@ -15,6 +15,7 @@
 		"db:studio": "doppler run --project=\"nx\" --config=\"api\" --command=\"drizzle-kit studio\"",
 		"dev": "doppler run --project=\"nx\" --config=\"api\" --command=\"bun --watch src/index.ts\"",
 		"format": "prettier --write .",
+		"format:check": "prettier . --check",
 		"lint": "eslint . --max-warnings=0",
 		"noEmit": "tsc --noEmit",
 		"start": "bun ./dist/index.js",

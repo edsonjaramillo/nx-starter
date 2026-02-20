@@ -6,6 +6,7 @@
 		"build": "vite build",
 		"dev": "doppler run --project=\"nx\" --config=\"api_web\" --command=\"vite dev\"",
 		"format": "prettier . --write",
+		"format:check": "prettier . --check",
 		"lint": "eslint . --max-warnings=0",
 		"noEmit": "tsc --noEmit",
 		"serve": "vite preview",

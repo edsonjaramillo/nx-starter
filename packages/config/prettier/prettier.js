@@ -3,16 +3,13 @@
  * @type {import("prettier").Config}
  */
 const base = {
-	plugins: [
-		'prettier-plugin-packagejson',
-		'@ianvs/prettier-plugin-sort-imports',
-	],
-	trailingComma: 'es5',
 	printWidth: 100,
-	semi: true,
 	useTabs: true,
+	semi: true,
 	singleQuote: true,
-	importOrderSortSpecifiers: true,
+	bracketSameLine: true,
+	trailingComma: 'es5',
+	plugins: ['prettier-plugin-packagejson', '@ianvs/prettier-plugin-sort-imports'],
 	importOrder: [
 		'<TYPES>^(node:)',
 		'<TYPES>',

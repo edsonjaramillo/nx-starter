@@ -1,10 +1,11 @@
 import { JSend, JSendErrorSchema, JSendSuccessSchema } from '@repo/http/jsend';
 import { HttpStatus } from '@repo/http/status-codes';
+import { paginationSchema } from '@repo/validation/schemas';
 import { Elysia } from 'elysia';
 import { z } from 'zod';
 import { UserQueries } from '../../db/queries/user-queries';
 import { insertUserSchema, selectUserSchema } from '../../db/schema/users-schema';
-import { paginationSchema, parsePagination } from '../../middleware/paginate';
+import { parsePagination } from '../../middleware/paginate';
 import { Password } from '../../utils/password';
 
 const tags = ['Users'];

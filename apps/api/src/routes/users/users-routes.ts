@@ -12,9 +12,9 @@ const tags = ['Users'];
 
 const paginatedUsersRouter = new Elysia().resolve(parsePagination).get(
 	'/',
-	async ({ pagination, set }) => {
-		const users = await UserQueries.getUsers(pagination);
-		set.status = HttpStatus.OK;
+	async (ctx) => {
+		const users = await UserQueries.getUsers(ctx.pagination);
+		ctx.set.status = HttpStatus.OK;
 		return JSend.success(users, 'Got users');
 	},
 	{
@@ -32,24 +32,24 @@ const paginatedUsersRouter = new Elysia().resolve(parsePagination).get(
 
 export const userRouter = new Elysia({ prefix: '/users' }).use(paginatedUsersRouter).post(
 	'/',
-	async ({ body, set }) => {
-		const parsedBody = insertUserSchema.safeParse(body);
+	async (ctx) => {
+		const parsedBody = insertUserSchema.safeParse(ctx.body);
 		if (!parsedBody.success) {
-			set.status = HttpStatus.BAD_REQUEST;
+			ctx.set.status = HttpStatus.BAD_REQUEST;
 			return JSend.error('Invalid user payload.');
 		}
 
 		const user = parsedBody.data;
 		const existingUser = await UserQueries.getUserByEmail(user.email);
 		if (existingUser) {
-			set.status = HttpStatus.CONFLICT;
+			ctx.set.status = HttpStatus.CONFLICT;
 			return JSend.error('User already exists.');
 		}
 
 		const hashedPassword = await Password.hash(user.password);
 		await UserQueries.createUser({ ...user, password: hashedPassword });
 
-		set.status = HttpStatus.CREATED;
+		ctx.set.status = HttpStatus.CREATED;
 		return JSend.success({}, 'User created succesfully.');
 	},
 	{

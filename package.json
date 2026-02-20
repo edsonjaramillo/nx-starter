@@ -10,7 +10,7 @@
 		"clean": "nx run-many --target=clean",
 		"docker:down": "doppler run --project=\"nx\" --config=\"api\" --command=\"docker compose down\"",
 		"docker:up": "doppler run --project=\"nx\" --config=\"api\" --command=\"docker compose up -d\"",
-		"format": "nx run-many --target=format",
+		"format": "prettier . --write && nx run-many --target=format",
 		"format:check": "nx run-many --target=format:check",
 		"lint": "nx run-many --target=lint",
 		"noEmit": "nx run-many --target=noEmit",

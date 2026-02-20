@@ -11,25 +11,23 @@
 		"db:generate": "doppler run --project=\"nx\" --config=\"api\" --command=\"drizzle-kit generate\"",
 		"db:migrate": "doppler run --project=\"nx\" --config=\"api\" --command=\"drizzle-kit migrate\"",
 		"db:push": "doppler run --project=\"nx\" --config=\"api\" --command=\"drizzle-kit push\"",
-		"db:seed": "doppler run --project=\"nx\" --config=\"api\" --command=\"tsx src/db/scripts/seed.ts\"",
+		"db:seed": "doppler run --project=\"nx\" --config=\"api\" --command=\"bun src/db/scripts/seed.ts\"",
 		"db:studio": "doppler run --project=\"nx\" --config=\"api\" --command=\"drizzle-kit studio\"",
-		"dev": "doppler run --project=\"nx\" --config=\"api\" --command=\"tsx watch src/index.ts\"",
+		"dev": "doppler run --project=\"nx\" --config=\"api\" --command=\"bun --watch src/index.ts\"",
 		"format": "prettier --write .",
 		"lint": "eslint . --max-warnings=0",
-		"start": "node ./dist/index.js",
-		"start:dev": "doppler run --project=\"nx\" --config=\"api\" --command=\"node dist/index.js\""
+		"start": "bun ./dist/index.js",
+		"start:dev": "doppler run --project=\"nx\" --config=\"api\" --command=\"bun dist/index.js\""
 	},
 	"dependencies": {
-		"@fastify/swagger": "catalog:",
+		"@elysiajs/openapi": "catalog:",
 		"@repo/http": "workspace:^",
 		"@repo/validation": "workspace:*",
-		"@scalar/fastify-api-reference": "catalog:",
 		"argon2": "catalog:",
 		"drizzle-kit": "catalog:",
 		"drizzle-orm": "catalog:",
 		"drizzle-zod": "catalog:",
-		"fastify": "catalog:",
-		"fastify-type-provider-zod": "catalog:",
+		"elysia": "catalog:",
 		"pg": "catalog:",
 		"uuidv7": "catalog:",
 		"zod": "catalog:"
@@ -43,7 +41,6 @@
 		"prettier": "catalog:",
 		"prettier-plugin-packagejson": "catalog:",
 		"tsup": "catalog:",
-		"tsx": "catalog:",
 		"typescript": "catalog:"
 	}
 }

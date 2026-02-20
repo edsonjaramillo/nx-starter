@@ -19,6 +19,7 @@
 		"@tanstack/react-router-ssr-query": "catalog:",
 		"@tanstack/react-start": "catalog:",
 		"@tanstack/router-plugin": "catalog:",
+		"@tanstack/zod-adapter": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",
 		"tailwindcss": "catalog:",

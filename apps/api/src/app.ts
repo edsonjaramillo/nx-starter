@@ -1,46 +1,31 @@
-import fastifySwagger from '@fastify/swagger';
-import scalarUI from '@scalar/fastify-api-reference';
-import fastify from 'fastify';
-import {
-	jsonSchemaTransform,
-	serializerCompiler,
-	validatorCompiler,
-} from 'fastify-type-provider-zod';
-import pacakgeJson from '../package.json';
+import { openapi } from '@elysiajs/openapi';
+import { JSend } from '@repo/http/jsend';
+import { HttpStatus } from '@repo/http/status-codes';
+import { Elysia } from 'elysia';
+import { z } from 'zod';
+import packageJson from '../package.json';
 import { userRouter } from './routes/users/users-routes';
 
-const app = fastify();
-
-// Fastify-type-provider-zod setup
-app.setValidatorCompiler(validatorCompiler);
-app.setSerializerCompiler(serializerCompiler);
-
-// OpenAPI setup
-app.register(fastifySwagger, {
-	openapi: {
-		info: {
-			title: 'Nx Monorepo API',
-			description: 'API documentation for the Nx Monorepo project',
-			version: pacakgeJson.version,
-		},
-	},
-	transform: jsonSchemaTransform,
-});
-
-app.register(scalarUI, {
-	routePrefix: '/reference',
-	configuration: {
-		theme: 'kepler',
-		layout: 'modern',
-		defaultHttpClient: {
-			targetKey: 'js',
-			clientKey: 'fetch',
-		},
-		defaultOpenAllTags: true,
-	},
-});
-
-// Register routers
-app.register(userRouter, { prefix: '/users' });
-
-export { app };
+export const app = new Elysia()
+	.use(
+		openapi({
+			mapJsonSchema: {
+				zod: z.toJSONSchema,
+			},
+			documentation: {
+				info: {
+					title: 'Nx Monorepo API',
+					description: 'API documentation for the Nx Monorepo project',
+					version: packageJson.version,
+				},
+			},
+		})
+	)
+	.onError(({ code, set }) => {
+		if (code === 'VALIDATION') {
+			set.status = HttpStatus.BAD_REQUEST;
+			return JSend.error('Invalid request payload.');
+		}
+		return JSend.error('An unexpected error occurred.');
+	})
+	.use(userRouter);

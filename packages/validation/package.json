@@ -10,6 +10,11 @@
 			"require": "./dist/core.cjs",
 			"import": "./dist/core.js"
 		},
+		"./schemas": {
+			"types": "./dist/schemas.d.ts",
+			"require": "./dist/schemas.cjs",
+			"import": "./dist/schemas.js"
+		},
 		"./helpers": {
 			"types": "./dist/helpers.d.ts",
 			"require": "./dist/helpers.cjs",

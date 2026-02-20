@@ -23,6 +23,7 @@ export function createEslintConfig(type, opts) {
 			'style/arrow-parens': ['off'],
 			'style/comma-dangle': ['off'],
 			'style/quote-props': ['off'],
+			'style/brace-style': ['off'],
 			indent: ['off'],
 		},
 		ignores: ['**/*/routeTree.gen.ts'],

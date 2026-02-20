@@ -1,4 +1,4 @@
-import { z } from 'zod/v4';
+import { z } from 'zod';
 
 // Schema factory for success responses
 export function JSendSuccessSchema<T extends z.ZodTypeAny>(
@@ -57,21 +57,21 @@ export function JSendRedirectSchema(): z.ZodObject<{
 }
 
 // Infer types from schemas
-interface JSendSuccess<T> {
+export interface JSendSuccess<T> {
 	status: 'success';
 	payload: T;
 	message: string;
 }
 
-interface JSendInfo<T> {
+export interface JSendInfo<T> {
 	status: 'info';
 	payload: T;
 	message: string;
 }
 
-type JSendError = z.infer<ReturnType<typeof JSendErrorSchema>>;
+export type JSendError = z.infer<ReturnType<typeof JSendErrorSchema>>;
 
-type JSendRedirect = z.infer<ReturnType<typeof JSendRedirectSchema>>;
+export type JSendRedirect = z.infer<ReturnType<typeof JSendRedirectSchema>>;
 
 // Helper object with factory methods
 export const JSend = {

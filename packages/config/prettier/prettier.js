@@ -1,3 +1,8 @@
+import { fileURLToPath } from 'node:url';
+
+const commonPlugins = ['prettier-plugin-packagejson', '@ianvs/prettier-plugin-sort-imports'];
+const tailwindStylesheet = fileURLToPath(new URL('../tailwind/theme.css', import.meta.url));
+
 /**
  * @see https://prettier.io/docs/configuration
  * @type {import("prettier").Config}
@@ -9,7 +14,7 @@ const base = {
 	singleQuote: true,
 	bracketSameLine: true,
 	trailingComma: 'es5',
-	plugins: ['prettier-plugin-packagejson', '@ianvs/prettier-plugin-sort-imports'],
+	plugins: commonPlugins,
 	importOrder: [
 		'<TYPES>^(node:)',
 		'<TYPES>',
@@ -19,6 +24,12 @@ const base = {
 		'^(?!.*[.]css$)[./].*$',
 		'.css$',
 	],
+};
+
+export const reactLibraryConfig = {
+	...base,
+	plugins: [...commonPlugins, 'prettier-plugin-tailwindcss'],
+	tailwindStylesheet,
 };
 
 export const libraryConfig = { ...base };

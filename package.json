@@ -10,8 +10,8 @@
 		"clean": "nx run-many --target=clean",
 		"docker:down": "doppler run --project=\"nx\" --config=\"api\" --command=\"docker compose down\"",
 		"docker:up": "doppler run --project=\"nx\" --config=\"api\" --command=\"docker compose up -d\"",
-		"format": "prettier . --write && nx run-many --target=format",
-		"format:check": "prettier . --check && nx run-many --target=format:check",
+		"format": "prettier docker-compose.yml nx.json package.json eslint.config.js pnpm-workspace.yaml prettier.config.js --write && nx run-many --target=format",
+		"format:check": "nx run-many --target=format:check",
 		"lint": "nx run-many --target=lint",
 		"noEmit": "nx run-many --target=noEmit",
 		"preload": "nx run-many --target=preload"
@@ -24,6 +24,7 @@
 		"nx": "catalog:",
 		"prettier": "catalog:",
 		"prettier-plugin-packagejson": "catalog:",
+		"prettier-plugin-tailwindcss": "catalog:",
 		"typescript": "catalog:"
 	},
 	"packageManager": "pnpm@10.14.0"

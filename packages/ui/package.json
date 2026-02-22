@@ -1,0 +1,61 @@
+{
+	"$schema": "https://json.schemastore.org/package",
+	"name": "@repo/ui",
+	"version": "1.0.0",
+	"license": "MIT",
+	"type": "module",
+	"exports": {
+		"./tailwind/theme": "./tailwind/theme.css",
+		"./tailwind/source": "./ui.css",
+		"./button": {
+			"types": "./dist/button.d.ts",
+			"require": "./dist/button.cjs",
+			"import": "./dist/button.js"
+		},
+		"./input": {
+			"types": "./dist/input.d.ts",
+			"require": "./dist/input.cjs",
+			"import": "./dist/input.js"
+		},
+		"./form": {
+			"types": "./dist/form.d.ts",
+			"require": "./dist/form.cjs",
+			"import": "./dist/form.js"
+		},
+		"./responsive": {
+			"types": "./dist/responsive.d.ts",
+			"require": "./dist/responsive.cjs",
+			"import": "./dist/responsive.js"
+		}
+	},
+	"scripts": {
+		"build": "tsup --env.CONFIG=production",
+		"clean": "rm -rf dist",
+		"dev": "tsup --env.CONFIG=development",
+		"format": "prettier --write .",
+		"format:check": "prettier . --check",
+		"lint": "eslint . --max-warnings=0",
+		"noEmit": "tsc --noEmit",
+		"preload": "tsup --env.CONFIG=preload"
+	},
+	"dependencies": {
+		"class-variance-authority": "^0.7.1",
+		"react": "catalog:",
+		"react-hook-form": "catalog:",
+		"tailwind-merge": "^3.5.0",
+		"tailwindcss": "catalog:"
+	},
+	"devDependencies": {
+		"@ianvs/prettier-plugin-sort-imports": "catalog:",
+		"@repo/config": "workspace:*",
+		"@types/node": "catalog:",
+		"@types/react": "catalog:",
+		"@types/react-dom": "catalog:",
+		"eslint": "catalog:",
+		"prettier": "catalog:",
+		"prettier-plugin-packagejson": "catalog:",
+		"prettier-plugin-tailwindcss": "catalog:",
+		"tsup": "catalog:",
+		"typescript": "catalog:"
+	}
+}

@@ -19,6 +19,11 @@
 			"types": "./dist/helpers.d.ts",
 			"require": "./dist/helpers.cjs",
 			"import": "./dist/helpers.js"
+		},
+		"./forms": {
+			"types": "./dist/forms.d.ts",
+			"require": "./dist/forms.cjs",
+			"import": "./dist/forms.js"
 		}
 	},
 	"scripts": {

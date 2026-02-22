@@ -13,6 +13,8 @@
 		"test": "vitest run"
 	},
 	"dependencies": {
+		"@hookform/resolvers": "^5.2.2",
+		"@repo/ui": "workspace:*",
 		"@repo/validation": "workspace:*",
 		"@tailwindcss/vite": "catalog:",
 		"@tanstack/react-devtools": "catalog:",
@@ -24,6 +26,7 @@
 		"@tanstack/zod-adapter": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",
+		"react-hook-form": "catalog:",
 		"tailwindcss": "catalog:",
 		"zod": "catalog:"
 	},
@@ -36,6 +39,7 @@
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"@vitejs/plugin-react": "catalog:",
+		"baseline-browser-mapping": "^2.10.0",
 		"eslint-plugin-react-hooks": "catalog:",
 		"eslint-plugin-react-refresh": "catalog:",
 		"jsdom": "catalog:",

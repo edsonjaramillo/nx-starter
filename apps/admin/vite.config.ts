@@ -2,10 +2,10 @@ import tailwindcss from '@tailwindcss/vite';
 import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 import viteReact from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import { webEnv } from './src/web-env';
+import { adminEnv } from './src/admin-env';
 
 const config = defineConfig({
-	server: { port: webEnv.WEB_PORT },
+	server: { port: adminEnv.ADMIN_PORT },
 	plugins: [tailwindcss(), tanstackStart(), viteReact()],
 });
 

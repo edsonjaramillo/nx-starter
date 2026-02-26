@@ -1,5 +1,5 @@
 {
-	"name": "web",
+	"name": "admin",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -13,7 +13,7 @@
 		"test": "vitest run"
 	},
 	"dependencies": {
-		"@hookform/resolvers": "^5.2.2",
+		"@hookform/resolvers": "catalog:",
 		"@repo/ui": "workspace:*",
 		"@repo/validation": "workspace:*",
 		"@tailwindcss/vite": "catalog:",
@@ -39,7 +39,7 @@
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"@vitejs/plugin-react": "catalog:",
-		"baseline-browser-mapping": "^2.10.0",
+		"baseline-browser-mapping": "catalog:",
 		"eslint-plugin-react-hooks": "catalog:",
 		"eslint-plugin-react-refresh": "catalog:",
 		"jsdom": "catalog:",

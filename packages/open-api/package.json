@@ -1,16 +1,17 @@
 {
-	"$schema": "https://json.schemastore.org/package",
-	"name": "@repo/open-api",
-	"version": "1.0.0",
-	"license": "MIT",
-	"type": "module",
-	"exports": {
-		"./schema": "./dist/openapi-api-schema.d.ts"
-	},
-	"scripts": {
-		"generate": "doppler run --project=\"nx\" --config=\"api\" --command=\"bash generate.sh\""
-	},
-	"devDependencies": {
-		"openapi-typescript": "catalog:"
-	}
+  "$schema": "https://json.schemastore.org/package",
+  "dependencies": {},
+  "devDependencies": {
+    "openapi-typescript": "catalog:"
+  },
+  "exports": {
+    "./schema": "./dist/openapi-api-schema.d.ts"
+  },
+  "license": "MIT",
+  "name": "@repo/open-api",
+  "scripts": {
+    "generate": "doppler run --project=\"nx\" --config=\"api\" --command=\"bash generate.sh\""
+  },
+  "type": "module",
+  "version": "1.0.0"
 }

@@ -5,28 +5,28 @@
 	"license": "MIT",
 	"type": "module",
 	"exports": {
-		"./tailwind/theme": "./tailwind/theme.css",
-		"./tailwind/source": "./ui.css",
 		"./button": {
-			"types": "./dist/button.d.ts",
+			"import": "./dist/button.js",
 			"require": "./dist/button.cjs",
-			"import": "./dist/button.js"
-		},
-		"./input": {
-			"types": "./dist/input.d.ts",
-			"require": "./dist/input.cjs",
-			"import": "./dist/input.js"
+			"types": "./dist/button.d.ts"
 		},
 		"./form": {
-			"types": "./dist/form.d.ts",
+			"import": "./dist/form.js",
 			"require": "./dist/form.cjs",
-			"import": "./dist/form.js"
+			"types": "./dist/form.d.ts"
+		},
+		"./input": {
+			"import": "./dist/input.js",
+			"require": "./dist/input.cjs",
+			"types": "./dist/input.d.ts"
 		},
 		"./responsive": {
-			"types": "./dist/responsive.d.ts",
+			"import": "./dist/responsive.js",
 			"require": "./dist/responsive.cjs",
-			"import": "./dist/responsive.js"
-		}
+			"types": "./dist/responsive.d.ts"
+		},
+		"./tailwind/source": "./ui.css",
+		"./tailwind/theme": "./tailwind/theme.css"
 	},
 	"scripts": {
 		"build": "tsup --env.CONFIG=production",
@@ -39,10 +39,10 @@
 		"preload": "tsup --env.CONFIG=preload"
 	},
 	"dependencies": {
-		"class-variance-authority": "^0.7.1",
+		"class-variance-authority": "catalog:",
 		"react": "catalog:",
 		"react-hook-form": "catalog:",
-		"tailwind-merge": "^3.5.0",
+		"tailwind-merge": "catalog:",
 		"tailwindcss": "catalog:"
 	},
 	"devDependencies": {

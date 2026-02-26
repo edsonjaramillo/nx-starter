@@ -6,14 +6,14 @@
 	"type": "module",
 	"exports": {
 		"./jsend": {
-			"types": "./dist/jsend.d.ts",
+			"import": "./dist/jsend.js",
 			"require": "./dist/jsend.cjs",
-			"import": "./dist/jsend.js"
+			"types": "./dist/jsend.d.ts"
 		},
 		"./status-codes": {
-			"types": "./dist/status-codes.d.ts",
+			"import": "./dist/status-codes.js",
 			"require": "./dist/status-codes.cjs",
-			"import": "./dist/status-codes.js"
+			"types": "./dist/status-codes.d.ts"
 		}
 	},
 	"scripts": {

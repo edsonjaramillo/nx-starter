@@ -6,24 +6,24 @@
 	"type": "module",
 	"exports": {
 		"./core": {
-			"types": "./dist/core.d.ts",
+			"import": "./dist/core.js",
 			"require": "./dist/core.cjs",
-			"import": "./dist/core.js"
-		},
-		"./schemas": {
-			"types": "./dist/schemas.d.ts",
-			"require": "./dist/schemas.cjs",
-			"import": "./dist/schemas.js"
-		},
-		"./helpers": {
-			"types": "./dist/helpers.d.ts",
-			"require": "./dist/helpers.cjs",
-			"import": "./dist/helpers.js"
+			"types": "./dist/core.d.ts"
 		},
 		"./forms": {
-			"types": "./dist/forms.d.ts",
+			"import": "./dist/forms.js",
 			"require": "./dist/forms.cjs",
-			"import": "./dist/forms.js"
+			"types": "./dist/forms.d.ts"
+		},
+		"./helpers": {
+			"import": "./dist/helpers.js",
+			"require": "./dist/helpers.cjs",
+			"types": "./dist/helpers.d.ts"
+		},
+		"./schemas": {
+			"import": "./dist/schemas.js",
+			"require": "./dist/schemas.cjs",
+			"types": "./dist/schemas.d.ts"
 		}
 	},
 	"scripts": {

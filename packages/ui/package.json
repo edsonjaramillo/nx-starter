@@ -5,28 +5,33 @@
 	"license": "MIT",
 	"type": "module",
 	"exports": {
+		"./tailwind/source": "./ui.css",
+		"./tailwind/theme": "./tailwind/theme.css",
 		"./button": {
+			"types": "./dist/button.d.ts",
 			"import": "./dist/button.js",
-			"require": "./dist/button.cjs",
-			"types": "./dist/button.d.ts"
+			"require": "./dist/button.cjs"
 		},
 		"./form": {
+			"types": "./dist/form.d.ts",
 			"import": "./dist/form.js",
-			"require": "./dist/form.cjs",
-			"types": "./dist/form.d.ts"
+			"require": "./dist/form.cjs"
 		},
 		"./input": {
+			"types": "./dist/input.d.ts",
 			"import": "./dist/input.js",
-			"require": "./dist/input.cjs",
-			"types": "./dist/input.d.ts"
+			"require": "./dist/input.cjs"
 		},
 		"./responsive": {
+			"types": "./dist/responsive.d.ts",
 			"import": "./dist/responsive.js",
-			"require": "./dist/responsive.cjs",
-			"types": "./dist/responsive.d.ts"
+			"require": "./dist/responsive.cjs"
 		},
-		"./tailwind/source": "./ui.css",
-		"./tailwind/theme": "./tailwind/theme.css"
+		"./text": {
+			"types": "./dist/text.d.ts",
+			"import": "./dist/text.js",
+			"require": "./dist/text.cjs"
+		}
 	},
 	"scripts": {
 		"build": "tsup --env.CONFIG=production",

@@ -1,19 +1,14 @@
 {
 	"$schema": "https://json.schemastore.org/package",
-	"name": "@repo/http",
+	"name": "@repo/context",
 	"version": "1.0.0",
 	"license": "MIT",
 	"type": "module",
 	"exports": {
-		"./jsend": {
-			"types": "./dist/jsend.d.ts",
-			"import": "./dist/jsend.js",
-			"require": "./dist/jsend.cjs"
-		},
-		"./status-codes": {
-			"types": "./dist/status-codes.d.ts",
-			"import": "./dist/status-codes.js",
-			"require": "./dist/status-codes.cjs"
+		"./mobile-menu": {
+			"types": "./dist/mobile-menu.d.ts",
+			"import": "./dist/mobile-menu.js",
+			"require": "./dist/mobile-menu.cjs"
 		}
 	},
 	"scripts": {
@@ -26,11 +21,12 @@
 		"preload": "tsup --env.CONFIG=preload"
 	},
 	"dependencies": {
-		"zod": "catalog:"
+		"zustand": "catalog:"
 	},
 	"devDependencies": {
 		"@ianvs/prettier-plugin-sort-imports": "catalog:",
 		"@repo/config": "workspace:*",
+		"@types/node": "catalog:",
 		"eslint": "catalog:",
 		"prettier": "catalog:",
 		"prettier-plugin-packagejson": "catalog:",

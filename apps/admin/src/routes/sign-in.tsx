@@ -14,7 +14,7 @@ export const Route = createFileRoute('/sign-in')({
 
 function RouteComponent() {
 	const form = useForm<SignInFormData>({ resolver: standardSchemaResolver(signInFormSchema) });
-	const onSubmit = form.handleSubmit(() => {});
+	const onSubmit = form.handleSubmit((e) => {});
 
 	return (
 		<Responsive>

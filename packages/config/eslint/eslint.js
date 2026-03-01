@@ -1,11 +1,10 @@
 import antfu from '@antfu/eslint-config';
 
 /**
- * @typedef {{react: boolean}} EslintConfigOptions
- */
-
+ * @typedef {{react: boolean, extraRules: Record<string, any>}} EslintConfigOptions
 /**
  * @param {!appType} type
+ * @param {} extraRules Extra rules to add to the config
  * @param {EslintConfigOptions} [opts]
  */
 export function createEslintConfig(type, opts) {
@@ -28,6 +27,7 @@ export function createEslintConfig(type, opts) {
 			'style/operator-linebreak': ['off'],
 			'style/quote-props': ['off'],
 			indent: ['off'],
+			...opts?.extraRules,
 		},
 		ignores: ['**/*/routeTree.gen.ts'],
 	});

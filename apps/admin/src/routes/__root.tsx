@@ -2,27 +2,16 @@ import { TanStackDevtools } from '@tanstack/react-devtools';
 import { createRootRoute, ErrorComponent, HeadContent, Scripts } from '@tanstack/react-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 import appCss from '../admin.css?url';
+import { Navigation } from '../components/navigation';
 
 export const Route = createRootRoute({
 	head: () => ({
 		meta: [
-			{
-				charSet: 'utf-8',
-			},
-			{
-				name: 'viewport',
-				content: 'width=device-width, initial-scale=1',
-			},
-			{
-				title: 'TanStack Start Starter',
-			},
+			{ charSet: 'utf-8' },
+			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
+			{ title: 'TanStack Start Starter' },
 		],
-		links: [
-			{
-				rel: 'stylesheet',
-				href: appCss,
-			},
-		],
+		links: [{ rel: 'stylesheet', href: appCss }],
 	}),
 	errorComponent: ({ error }) => <ErrorComponent error={error} />,
 	notFoundComponent: () => {
@@ -38,17 +27,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 			<body>
+				<Navigation />
 				{children}
 				<TanStackDevtools
-					config={{
-						position: 'bottom-right',
-					}}
-					plugins={[
-						{
-							name: 'Tanstack Router',
-							render: <TanStackRouterDevtoolsPanel />,
-						},
-					]}
+					config={{ position: 'bottom-right' }}
+					plugins={[{ name: 'Tanstack Router', render: <TanStackRouterDevtoolsPanel /> }]}
 				/>
 				<Scripts />
 			</body>

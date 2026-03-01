@@ -7,7 +7,7 @@ readonly API_PORT="${API_PORT:?API_PORT environment variable must be set}"
 readonly API_OPENAPI_DOC_ENDPOINT="http://localhost:${API_PORT}/openapi/json"
 readonly CURL_TIMEOUT=30
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-readonly OUTPUT_FILE="./dist/openapi-api-schema.d.ts"
+readonly OUTPUT_FILE="./openapi-api-schema.d.ts"
 
 # Colors for output
 readonly RED='\033[0;31m'

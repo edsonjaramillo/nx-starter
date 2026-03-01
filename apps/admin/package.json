@@ -43,7 +43,6 @@
 		"eslint-plugin-react-hooks": "catalog:",
 		"eslint-plugin-react-refresh": "catalog:",
 		"jsdom": "catalog:",
-		"openapi-fetch": "catalog:",
 		"prettier": "catalog:",
 		"prettier-plugin-packagejson": "catalog:",
 		"typescript": "catalog:",

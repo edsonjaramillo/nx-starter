@@ -1,17 +1,40 @@
 {
-  "$schema": "https://json.schemastore.org/package",
-  "dependencies": {},
-  "devDependencies": {
-    "openapi-typescript": "catalog:"
-  },
-  "exports": {
-    "./schema": "./dist/openapi-api-schema.d.ts"
-  },
-  "license": "MIT",
-  "name": "@repo/open-api",
-  "scripts": {
-    "generate": "doppler run --project=\"nx\" --config=\"api\" --command=\"bash generate.sh\""
-  },
-  "type": "module",
-  "version": "1.0.0"
+	"$schema": "https://json.schemastore.org/package",
+	"name": "@repo/open-api",
+	"version": "1.0.0",
+	"license": "MIT",
+	"type": "module",
+	"exports": {
+		"./schema": "./openapi-api-schema.d.ts",
+		"./api-client": {
+			"types": "./dist/api-client.d.ts",
+			"import": "./dist/api-client.js",
+			"require": "./dist/api-client.cjs"
+		}
+	},
+	"scripts": {
+		"build": "tsup --env.CONFIG=production",
+		"clean": "rm -rf dist",
+		"dev": "tsup --env.CONFIG=development",
+		"format": "prettier --write .",
+		"format:check": "prettier . --check",
+		"generate": "doppler run --project=\"nx\" --config=\"api\" --command=\"bash generate.sh\"",
+		"lint": "eslint . --max-warnings=0",
+		"preload": "tsup --env.CONFIG=preload"
+	},
+	"dependencies": {
+		"@repo/config": "workspace:*",
+		"@repo/validation": "workspace:*"
+	},
+	"devDependencies": {
+		"@ianvs/prettier-plugin-sort-imports": "catalog:",
+		"@repo/config": "workspace:*",
+		"eslint": "catalog:",
+		"openapi-fetch": "catalog:",
+		"openapi-typescript": "catalog:",
+		"prettier": "catalog:",
+		"prettier-plugin-packagejson": "catalog:",
+		"tsup": "catalog:",
+		"typescript": "catalog:"
+	}
 }
